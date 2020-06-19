@@ -3,17 +3,23 @@ author: @NukeSuraj
 """
 
 import pyautogui as pg 
-# to install: run cmd, cd C:\Users\nukal\AppData\Local\Programs\Python\Python38-32\Scripts, pip install pyautogui
-import time    
+import time
+import string
+
 
 # Names(as saved in whatsapp) Of The People to Be .....
 uname = ["Karthik","Raki","Varun"]    
 
 # The Song Lyrics
-sname = input("Enter Lyrics File:") #RapGod.txt/SoFarAway.txt for now or you can create your own text file
+#   sname = input("Enter Lyrics File:") #RapGod.txt/SoFarAway.txt for now or you can create your own text file
+driver = webdriver.Chrome()
+sname=input("Enter the song name:")
+driver.get(f"http://google.com/?#q={sname} lyrics")
+song = driver.find_element_by_class_name("Oh5wg").text
 
-with open(sname,"r") as f:
-    song = f.readlines()
+
+"""with open(sname,"r") as f:
+    song = f.readlines()"""
 
 t = 0.5
 
